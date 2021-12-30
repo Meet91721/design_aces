@@ -3,6 +3,7 @@ import 'package:design_aces/screens/widgets/drawer.dart';
 import 'package:design_aces/screens/widgets/responsive.dart';
 import 'package:design_aces/screens/widgets/topbar_content.dart';
 import 'package:flutter/material.dart';
+import 'package:velocity_x/src/extensions/context_ext.dart';
 
 class Contact extends StatefulWidget {
   const Contact({Key? key}) : super(key: key);
@@ -40,14 +41,17 @@ class _ContactState extends State<Contact> {
               backgroundColor: Colors.blueGrey.shade900
                   .withOpacity(_opacity < 0.6 ? 0.6 : _opacity),
               elevation: 0,
-              title: Text(
-                'ACES',
-                style: TextStyle(
-                  color: Colors.blueGrey.shade100,
-                  fontSize: 20,
-                  fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.w400,
-                  letterSpacing: 3,
+              title: GestureDetector(
+                onTap: () => context.vxNav.popToRoot(),
+                child: Text(
+                  'ACES',
+                  style: TextStyle(
+                    color: Colors.blueGrey.shade100,
+                    fontSize: 20,
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.w400,
+                    letterSpacing: 3,
+                  ),
                 ),
               ),
             )
