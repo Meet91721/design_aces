@@ -1,4 +1,3 @@
-import 'package:design_aces/screens/widgets/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -119,29 +118,48 @@ class ContactUs extends StatelessWidget {
                     ),
                   ),
                 ),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Address: ',
-                      style: TextStyle(
-                        color: Colors.blueGrey.shade300,
-                        fontSize: 18,
-                      ),
-                    ),
-                    Flexible(
-                      child: Text(
-                        'Nirma University, Ahmedabad',
-                        style: TextStyle(
-                          color: Colors.blueGrey.shade100,
-                          fontSize: 18,
-                        ),
-                      ),
-                    )
-                  ],
+                const SizedBox(
+                  height: 13,
                 ),
+                Text(
+                  'Address:',
+                  style: TextStyle(
+                    color: Colors.blueGrey.shade300,
+                    fontSize: 18,
+                  ),
+                ),
+                Flexible(
+                  child: Text(
+                    'Nirma University, Ahmedabad',
+                    style: TextStyle(
+                      color: Colors.blueGrey.shade100,
+                      fontSize: 18,
+                    ),
+                  ),
+                )
+                // Row(
+                //   mainAxisSize: MainAxisSize.min,
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   crossAxisAlignment: CrossAxisAlignment.start,
+                //   children: [
+                //     Text(
+                //       'Address: \n',
+                //       style: TextStyle(
+                //         color: Colors.blueGrey.shade300,
+                //         fontSize: 18,
+                //       ),
+                //     ),
+                //     Flexible(
+                //       child: Text(
+                //         'Nirma University, Ahmedabad',
+                //         style: TextStyle(
+                //           color: Colors.blueGrey.shade100,
+                //           fontSize: 18,
+                //         ),
+                //       ),
+                //     )
+                //   ],
+                // ),
               ],
             ),
           )
