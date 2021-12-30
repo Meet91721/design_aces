@@ -1,4 +1,6 @@
+import 'package:design_aces/my_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:velocity_x/src/extensions/context_ext.dart';
 
 class ExploreDrawer extends StatelessWidget {
   const ExploreDrawer({
@@ -31,7 +33,9 @@ class ExploreDrawer extends StatelessWidget {
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () async {
+                  await context.vxNav.push(Uri.parse(MyRoutes.events));
+                },
                 child: const Text(
                   'Events',
                   style: TextStyle(color: Colors.white, fontSize: 22),
@@ -45,7 +49,9 @@ class ExploreDrawer extends StatelessWidget {
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () async {
+                  await context.vxNav.push(Uri.parse(MyRoutes.about));
+                },
                 child: const Text(
                   'About Us',
                   style: TextStyle(color: Colors.white, fontSize: 22),

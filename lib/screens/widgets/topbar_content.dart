@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:velocity_x/src/extensions/context_ext.dart';
+
+import '../../my_routes.dart';
 
 class TopBarContent extends StatefulWidget {
   final double opacity;
@@ -29,18 +32,23 @@ class _TopBarContentState extends State<TopBarContent> {
       child: Container(
         color: Colors.blueGrey.shade900.withOpacity(widget.opacity),
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                'ACES',
-                style: TextStyle(
-                  color: Colors.blueGrey.shade100,
-                  fontSize: 20,
-                  fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 3,
+              GestureDetector(
+                onTap: () {
+                  context.vxNav.pop();
+                },
+                child: Text(
+                  'ACES',
+                  style: TextStyle(
+                    color: Colors.blueGrey.shade100,
+                    fontSize: 20,
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 3,
+                  ),
                 ),
               ),
               Expanded(
@@ -60,13 +68,19 @@ class _TopBarContentState extends State<TopBarContent> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Text(
-                            'About Us',
-                            style: TextStyle(
-                                fontSize: 17,
-                                color: _isHovering[0]
-                                    ? Colors.blue.shade300
-                                    : Colors.white70),
+                          GestureDetector(
+                            onTap: () async {
+                              await context.vxNav
+                                  .push(Uri.parse(MyRoutes.about));
+                            },
+                            child: Text(
+                              'About Us',
+                              style: TextStyle(
+                                  fontSize: 17,
+                                  color: _isHovering[0]
+                                      ? Colors.blue.shade300
+                                      : Colors.white70),
+                            ),
                           ),
                           const SizedBox(height: 5),
                           Visibility(
@@ -133,13 +147,19 @@ class _TopBarContentState extends State<TopBarContent> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Text(
-                            'Events',
-                            style: TextStyle(
-                                fontSize: 17,
-                                color: _isHovering[2]
-                                    ? Colors.blue.shade300
-                                    : Colors.white70),
+                          GestureDetector(
+                            onTap: () async {
+                              await context.vxNav
+                                  .push(Uri.parse(MyRoutes.events));
+                            },
+                            child: Text(
+                              'Events',
+                              style: TextStyle(
+                                  fontSize: 17,
+                                  color: _isHovering[2]
+                                      ? Colors.blue.shade300
+                                      : Colors.white70),
+                            ),
                           ),
                           SizedBox(height: 5),
                           Visibility(
