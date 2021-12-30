@@ -58,6 +58,7 @@ flutter:
     - assets/images/events/Research/
     - assets/images/events/Teachers/
     - assets/images/events/WebACES/
+    - assets/images/members/
   fonts:
     - family: Montserrat
       fonts:

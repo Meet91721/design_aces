@@ -110,15 +110,21 @@ class _TopBarContentState extends State<TopBarContent> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Text(
-                            'Team',
-                            style: TextStyle(
-                                fontSize: 17,
-                                color: _isHovering[1]
-                                    ? Colors.blue.shade300
-                                    : Colors.white70),
+                          GestureDetector(
+                            onTap: () async {
+                              await context.vxNav
+                                  .push(Uri.parse(MyRoutes.teams));
+                            },
+                            child: Text(
+                              'Team',
+                              style: TextStyle(
+                                  fontSize: 17,
+                                  color: _isHovering[1]
+                                      ? Colors.blue.shade300
+                                      : Colors.white70),
+                            ),
                           ),
-                          SizedBox(height: 5),
+                          const SizedBox(height: 5),
                           Visibility(
                             maintainAnimation: true,
                             maintainState: true,
@@ -161,7 +167,7 @@ class _TopBarContentState extends State<TopBarContent> {
                                       : Colors.white70),
                             ),
                           ),
-                          SizedBox(height: 5),
+                          const SizedBox(height: 5),
                           Visibility(
                             maintainAnimation: true,
                             maintainState: true,

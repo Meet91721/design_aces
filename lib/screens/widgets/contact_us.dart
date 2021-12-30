@@ -52,7 +52,7 @@ class ContactUs extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height: 5),
+                      const SizedBox(height: 5),
                       GestureDetector(
                         onTap: () {
                           _launchInBrowser(iG);

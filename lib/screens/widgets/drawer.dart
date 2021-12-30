@@ -19,7 +19,9 @@ class ExploreDrawer extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               InkWell(
-                onTap: () {},
+                onTap: () async {
+                  await context.vxNav.push(Uri.parse(MyRoutes.teams));
+                },
                 child: const Text(
                   'Team',
                   style: TextStyle(color: Colors.white, fontSize: 22),
@@ -62,13 +64,6 @@ class ExploreDrawer extends StatelessWidget {
                 child: Divider(
                   color: Colors.blueGrey.shade400,
                   thickness: 2,
-                ),
-              ),
-              InkWell(
-                onTap: () {},
-                child: const Text(
-                  'Contact Us',
-                  style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
               ),
             ],

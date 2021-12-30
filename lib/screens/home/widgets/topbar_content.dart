@@ -29,7 +29,7 @@ class _TopBarContentState extends State<TopBarContent> {
       child: Container(
         color: Colors.blueGrey.shade900.withOpacity(widget.opacity),
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -104,7 +104,7 @@ class _TopBarContentState extends State<TopBarContent> {
                                     ? Colors.blue.shade300
                                     : Colors.white70),
                           ),
-                          SizedBox(height: 5),
+                          const SizedBox(height: 5),
                           Visibility(
                             maintainAnimation: true,
                             maintainState: true,
@@ -141,7 +141,7 @@ class _TopBarContentState extends State<TopBarContent> {
                                     ? Colors.blue.shade300
                                     : Colors.white70),
                           ),
-                          SizedBox(height: 5),
+                          const SizedBox(height: 5),
                           Visibility(
                             maintainAnimation: true,
                             maintainState: true,
