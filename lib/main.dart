@@ -1,4 +1,4 @@
-import 'package:design_aces/screens/home/home.dart';
+import 'package:design_aces/screens/aboutUs/about_us.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Home(),
+      home: const AboutUs(),
     );
   }
 }

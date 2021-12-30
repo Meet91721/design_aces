@@ -1,17 +1,18 @@
+import 'package:design_aces/screens/aboutUs/widgets/carousel.dart';
 import 'package:design_aces/screens/widgets/contact_us.dart';
 import 'package:design_aces/screens/widgets/drawer.dart';
 import 'package:design_aces/screens/widgets/responsive.dart';
 import 'package:design_aces/screens/widgets/topbar_content.dart';
 import 'package:flutter/material.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class AboutUs extends StatefulWidget {
+  const AboutUs({Key? key}) : super(key: key);
 
   @override
-  _HomeState createState() => _HomeState();
+  State<AboutUs> createState() => _AboutUsState();
 }
 
-class _HomeState extends State<Home> {
+class _AboutUsState extends State<AboutUs> {
   final ScrollController _scrollController = ScrollController();
   double _scrollPosition = 0;
   double _opacity = 0;
@@ -35,7 +36,6 @@ class _HomeState extends State<Home> {
         ? _scrollPosition / (screenSize.height * 0.4)
         : 1;
     return Scaffold(
-      extendBodyBehindAppBar: true,
       appBar: Responsive.isSmallScreen(context)
           ? AppBar(
               backgroundColor: Colors.blueGrey.shade900
@@ -63,17 +63,8 @@ class _HomeState extends State<Home> {
           controller: _scrollController,
           physics: const ClampingScrollPhysics(),
           child: Column(
-            children: [
-              SizedBox(
-                height: screenSize.height * 0.60,
-                width: screenSize.width,
-                child:
-                    Image.asset('assets/images/Home1.jpg', fit: BoxFit.cover),
-              ),
-              const SizedBox(
-                height: 29,
-              ),
-              const Padding(
+            children: const [
+              Padding(
                 padding: EdgeInsets.fromLTRB(70, 16, 70, 16),
                 child: Center(
                   child: Text(
@@ -86,29 +77,10 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ),
-              Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: const [
-                    Image(
-                      image: AssetImage('assets/images/logo/ACES.png'),
-                      fit: BoxFit.contain,
-                      height: 200,
-                      width: 200,
-                    ),
-                    Image(
-                      image: AssetImage('assets/images/logo/NU.png'),
-                      height: 200,
-                      width: 200,
-                      fit: BoxFit.contain,
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(
+              SizedBox(
                 height: 29,
               ),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.fromLTRB(70, 16, 70, 16),
                 child: Center(
                   child: Text(
@@ -121,10 +93,14 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ),
-              const SizedBox(
+              SizedBox(
                 height: 29,
               ),
-              const Padding(
+              DestinationCarousel(),
+              SizedBox(
+                height: 29,
+              ),
+              Padding(
                 padding: EdgeInsets.fromLTRB(70, 16, 70, 16),
                 child: Center(
                   child: Text(
@@ -137,7 +113,7 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ),
-              const ContactUs(),
+              ContactUs(),
             ],
           )),
     );
