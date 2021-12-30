@@ -12,19 +12,19 @@ class Events extends StatefulWidget {
 }
 
 class _EventsState extends State<Events> {
-  final ScrollController _scrollController = ScrollController();
+  final ScrollController scrollController = ScrollController();
   double _scrollPosition = 0;
   double _opacity = 0;
 
   _scrollListner() {
     setState(() {
-      _scrollPosition = _scrollController.position.pixels;
+      _scrollPosition = scrollController.position.pixels;
     });
   }
 
   @override
   void initState() {
-    _scrollController.addListener(_scrollListner);
+    scrollController.addListener(_scrollListner);
     super.initState();
   }
 
@@ -55,11 +55,14 @@ class _EventsState extends State<Events> {
               preferredSize: Size(screenSize.width, 1000),
               child: TopBarContent(
                 opacity: _opacity < 0.6 ? 0.6 : _opacity,
+                scrollController: scrollController,
               ),
             ),
-      drawer: const ExploreDrawer(),
+      drawer: ExploreDrawer(
+        scrollController: scrollController,
+      ),
       body: SingleChildScrollView(
-        controller: _scrollController,
+        controller: scrollController,
         physics: const ClampingScrollPhysics(),
         child: Column(
           children: [

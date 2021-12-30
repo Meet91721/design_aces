@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:velocity_x/src/extensions/context_ext.dart';
 
 class ExploreDrawer extends StatelessWidget {
-  const ExploreDrawer({
-    Key? key,
-  }) : super(key: key);
+  late ScrollController scrollController;
+  ExploreDrawer({Key? key, required this.scrollController}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +55,22 @@ class ExploreDrawer extends StatelessWidget {
                 },
                 child: const Text(
                   'About Us',
+                  style: TextStyle(color: Colors.white, fontSize: 22),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
+                child: Divider(
+                  color: Colors.blueGrey.shade400,
+                  thickness: 2,
+                ),
+              ),
+              InkWell(
+                onTap: () async {
+                  await context.vxNav.push(Uri.parse(MyRoutes.contact));
+                },
+                child: const Text(
+                  'Contact Us',
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
               ),

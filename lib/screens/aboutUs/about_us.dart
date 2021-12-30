@@ -13,19 +13,19 @@ class AboutUs extends StatefulWidget {
 }
 
 class _AboutUsState extends State<AboutUs> {
-  final ScrollController _scrollController = ScrollController();
+  final ScrollController scrollController = ScrollController();
   double _scrollPosition = 0;
   double _opacity = 0;
 
   _scrollListner() {
     setState(() {
-      _scrollPosition = _scrollController.position.pixels;
+      _scrollPosition = scrollController.position.pixels;
     });
   }
 
   @override
   void initState() {
-    _scrollController.addListener(_scrollListner);
+    scrollController.addListener(_scrollListner);
     super.initState();
   }
 
@@ -56,15 +56,43 @@ class _AboutUsState extends State<AboutUs> {
               preferredSize: Size(screenSize.width, 1000),
               child: TopBarContent(
                 opacity: _opacity < 0.6 ? 0.6 : _opacity,
+                scrollController: scrollController,
               ),
             ),
-      drawer: const ExploreDrawer(),
+      drawer: ExploreDrawer(
+        scrollController: scrollController,
+      ),
       body: SingleChildScrollView(
-          controller: _scrollController,
+          controller: scrollController,
           physics: const ClampingScrollPhysics(),
           child: Column(
-            children: const [
-              Padding(
+            children: [
+              const SizedBox(
+                height: 15,
+              ),
+              Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: const [
+                    Image(
+                      image: AssetImage('assets/images/logo/ACES.png'),
+                      fit: BoxFit.contain,
+                      height: 200,
+                      width: 200,
+                    ),
+                    Image(
+                      image: AssetImage('assets/images/logo/NU.png'),
+                      height: 200,
+                      width: 200,
+                      fit: BoxFit.contain,
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 29,
+              ),
+              const Padding(
                 padding: EdgeInsets.fromLTRB(70, 16, 70, 16),
                 child: Center(
                   child: Text(
@@ -77,10 +105,10 @@ class _AboutUsState extends State<AboutUs> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 29,
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.fromLTRB(70, 16, 70, 16),
                 child: Center(
                   child: Text(
@@ -93,14 +121,14 @@ class _AboutUsState extends State<AboutUs> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 29,
               ),
-              DestinationCarousel(),
-              SizedBox(
+              const DestinationCarousel(),
+              const SizedBox(
                 height: 29,
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.fromLTRB(70, 16, 70, 16),
                 child: Center(
                   child: Text(
@@ -113,7 +141,7 @@ class _AboutUsState extends State<AboutUs> {
                   ),
                 ),
               ),
-              ContactUs(),
+              const ContactUs(),
             ],
           )),
     );

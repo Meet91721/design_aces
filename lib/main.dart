@@ -1,6 +1,7 @@
 import 'package:design_aces/my_routes.dart';
 import 'package:design_aces/screens/Teams/teams.dart';
 import 'package:design_aces/screens/aboutUs/about_us.dart';
+import 'package:design_aces/screens/contact/contact_us.dart';
 import 'package:design_aces/screens/events/events.dart';
 import 'package:design_aces/screens/home/home.dart';
 import 'package:flutter/material.dart';
@@ -25,13 +26,13 @@ class MyApp extends StatelessWidget {
         MyRoutes.about: (_, __) => const MaterialPage(child: AboutUs()),
         MyRoutes.events: (_, __) => const MaterialPage(child: Events()),
         MyRoutes.teams: (_, __) => const MaterialPage(child: Team()),
+        MyRoutes.contact: (_, __) => const MaterialPage(child: Contact())
       }),
       debugShowCheckedModeBanner: false,
       title: 'ACES',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // home: const AboutUs(),
     );
   }
 }

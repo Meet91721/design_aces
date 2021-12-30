@@ -5,8 +5,11 @@ import '../../my_routes.dart';
 
 class TopBarContent extends StatefulWidget {
   final double opacity;
+  final ScrollController scrollController;
 
-  const TopBarContent({Key? key, required this.opacity}) : super(key: key);
+  TopBarContent(
+      {Key? key, required this.opacity, required this.scrollController})
+      : super(key: key);
 
   @override
   _TopBarContentState createState() => _TopBarContentState();
@@ -24,6 +27,8 @@ class _TopBarContentState extends State<TopBarContent> {
     false,
     false
   ];
+
+  get scrollController => null;
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -38,7 +43,7 @@ class _TopBarContentState extends State<TopBarContent> {
             children: [
               GestureDetector(
                 onTap: () {
-                  context.vxNav.pop();
+                  context.vxNav.popToRoot();
                 },
                 child: Text(
                   'ACES',
@@ -191,7 +196,9 @@ class _TopBarContentState extends State<TopBarContent> {
                     value ? _isHovering[3] = true : _isHovering[3] = false;
                   });
                 },
-                onTap: () {},
+                onTap: () async {
+                  await context.vxNav.push(Uri.parse(MyRoutes.contact));
+                },
                 child: Text(
                   'Contact Us',
                   style: TextStyle(

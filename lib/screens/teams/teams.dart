@@ -12,19 +12,19 @@ class Team extends StatefulWidget {
 }
 
 class _TeamState extends State<Team> {
-  final ScrollController _scrollController = ScrollController();
+  late ScrollController scrollController = ScrollController();
   double _scrollPosition = 0;
   double _opacity = 0;
 
   _scrollListner() {
     setState(() {
-      _scrollPosition = _scrollController.position.pixels;
+      _scrollPosition = scrollController.position.pixels;
     });
   }
 
   @override
   void initState() {
-    _scrollController.addListener(_scrollListner);
+    scrollController.addListener(_scrollListner);
     super.initState();
   }
 
@@ -55,11 +55,14 @@ class _TeamState extends State<Team> {
               preferredSize: Size(screenSize.width, 1000),
               child: TopBarContent(
                 opacity: _opacity < 0.6 ? 0.6 : _opacity,
+                scrollController: scrollController,
               ),
             ),
-      drawer: const ExploreDrawer(),
+      drawer: ExploreDrawer(
+        scrollController: scrollController,
+      ),
       body: SingleChildScrollView(
-        controller: _scrollController,
+        controller: scrollController,
         physics: const ClampingScrollPhysics(),
         child: Responsive.isSmallScreen(context)
             ? Column(
@@ -229,9 +232,6 @@ class _TeamState extends State<Team> {
                             address: '1.jpg',
                             name: 'Kanisha Shah',
                             post: 'President'),
-                        SizedBox(
-                          width: 15,
-                        ),
                         ProfileCard(
                           address: '2.jpg',
                           name: 'Meet Vora',
@@ -241,9 +241,6 @@ class _TeamState extends State<Team> {
                           address: '3.jpeg',
                           name: 'Kunj Thakkar',
                           post: 'General Secretary',
-                        ),
-                        SizedBox(
-                          width: 15,
                         ),
                         ProfileCard(
                           address: '4.jpg',
@@ -264,9 +261,6 @@ class _TeamState extends State<Team> {
                           name: 'Akshat Shah',
                           post: 'Oranizing Secratory',
                         ),
-                        SizedBox(
-                          width: 15,
-                        ),
                         ProfileCard(
                           address: '6.jpg',
                           name: 'Naman Thakkar',
@@ -276,9 +270,6 @@ class _TeamState extends State<Team> {
                           address: '7.jpg',
                           name: 'Mrunal Shah',
                           post: 'Director General',
-                        ),
-                        SizedBox(
-                          width: 15,
                         ),
                         ProfileCard(
                           address: '8.jpeg',
@@ -299,9 +290,6 @@ class _TeamState extends State<Team> {
                           name: 'Shivam Panchal',
                           post: 'Technical Head',
                         ),
-                        SizedBox(
-                          width: 15,
-                        ),
                         ProfileCard(
                           address: '10.png',
                           name: 'Yagnik Thummar',
@@ -311,9 +299,6 @@ class _TeamState extends State<Team> {
                           address: '11.jpg',
                           name: 'Ansh Ray',
                           post: 'Public Relation Officer',
-                        ),
-                        SizedBox(
-                          width: 15,
                         ),
                         ProfileCard(
                           address: '12.jpg',
@@ -334,9 +319,6 @@ class _TeamState extends State<Team> {
                           name: 'Gaurav Sakariya',
                           post: 'Creative Head',
                         ),
-                        SizedBox(
-                          width: 15,
-                        ),
                         ProfileCard(
                           address: '14.jpg',
                           name: 'Sachi Chaudhary',
@@ -346,9 +328,6 @@ class _TeamState extends State<Team> {
                           address: '15.jpg',
                           name: 'Aayush Shah',
                           post: 'Graphic Designer',
-                        ),
-                        SizedBox(
-                          width: 15,
                         ),
                         ProfileCard(
                           address: '16.png',
