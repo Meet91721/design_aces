@@ -62,7 +62,23 @@ class _ContactState extends State<Contact> {
                 scrollController: scrollController,
               ),
             ),
-      body: const ContactUs(),
+      body: Stack(
+        children: [
+          const ContactUs(),
+          Container(
+              alignment: Alignment.bottomCenter,
+              child: const Padding(
+                padding: EdgeInsets.only(bottom: 10.0),
+                child: Text(
+                  'Designed with 💓 by A.मीત (Team: DesignACES)',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.amber,
+                  ),
+                ),
+              )),
+        ],
+      ),
       drawer: ExploreDrawer(
         scrollController: scrollController,
       ),
